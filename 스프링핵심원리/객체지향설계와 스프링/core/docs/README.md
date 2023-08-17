@@ -17,5 +17,19 @@ public class MemberServiceImpl implements MemberService {
 - 할인 정책은 모든 VIP는 1000원을 할인해주는 고정 금액 할인을 적용해달라.(나중에 변경 가능)
 - 할인 정책은 변경 가능성이 높다. 회사의 기본 할인 정책을 아직 정하지 못했고, 오픈 직전까지 고민을 미루고 싶다.
 - 최악의 경우 할인을 적용하지 않을 수 있다.(미확정)
+
 ![img.png](img.png)
 
+
+### 주문 도메인 전체
+![img_1.png](img_1.png)
+
+
+### 주문 도메인 클래스 다이어그램 
+![img_2.png](img_2.png)
+
+### 주문 도메인 객체 다이어그램1
+![img_3.png](img_3.png)
+
+### 주문 도메인 객체 다이어그램2
+![img_4.png](img_4.png)

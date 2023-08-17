@@ -3,6 +3,7 @@ package com.example.core;
 import com.example.core.member.Grade;
 import com.example.core.member.Member;
 import com.example.core.member.MemberService;
+import com.example.core.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
