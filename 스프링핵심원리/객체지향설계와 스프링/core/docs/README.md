@@ -33,3 +33,23 @@ public class MemberServiceImpl implements MemberService {
 
 ### 주문 도메인 객체 다이어그램2
 ![img_4.png](img_4.png)
+
+### 새로운 할인 정책 개발
+![img_5.png](img_5.png)
+
+
+
+### 할인 정책의 문제점 발견
+```java
+public class OrderServiceImpl implements OrderService{
+    //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+}
+```
+![img_6.png](img_6.png)
+
+![img_7.png](img_7.png)
+
+결론은 인터페이스에만 의존해야한다!
+
+![img_8.png](img_8.png)
