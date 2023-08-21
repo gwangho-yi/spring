@@ -41,9 +41,12 @@ public class MemberServiceImpl implements MemberService {
 
 ### 할인 정책의 문제점 발견
 ```java
-public class OrderServiceImpl implements OrderService{
-    //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+public class OrderServiceImpl implements OrderService {
+//     private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    // DIP 위반 : 인터페이스에만 의존해야하는데 FixDiscountPolicy, RateDiscountPolicy에 의존한다.
+    // OCP 위반 : 기능을 확장해서 변경하려면 클라이언트인 OrderServiceImpl의 코드를 수정해야한다.
     private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+    
 }
 ```
 ![img_6.png](img_6.png)
@@ -53,3 +56,20 @@ public class OrderServiceImpl implements OrderService{
 결론은 인터페이스에만 의존해야한다!
 
 ![img_8.png](img_8.png)
+
+![img_9.png](img_9.png)
+
+![img_10.png](img_10.png)
+
+
+```java
+public class OrderServiceImpl implements OrderService {
+    //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+    // 인터페이스에만 의존하도록 구현체 지움
+    private DiscountPolicy discountPolicy;
+}
+```
+
+![img_11.png](img_11.png)
+
