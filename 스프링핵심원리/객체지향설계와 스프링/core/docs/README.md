@@ -59,6 +59,9 @@ public class OrderServiceImpl implements OrderService {
 
 ![img_9.png](img_9.png)
 
+
+
+먼저 멤버관련 코드를 변경해보자
 ![img_10.png](img_10.png)
 
 
@@ -70,6 +73,48 @@ public class OrderServiceImpl implements OrderService {
     private DiscountPolicy discountPolicy;
 }
 ```
-
 ![img_11.png](img_11.png)
 
+```java
+public class AppConfig {
+    public MemberService memberService() {
+        return new MemberServiceImpl(new MemoryMemberRepository());
+    }
+
+    public OrderService orderService() {
+        return new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
+    }
+}
+```
+
+```java
+public class OrderServiceImpl implements OrderService {
+
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+}
+```
+
+
+```java
+public class MemberServiceImpl implements MemberService {
+
+    private final MemberRepository memberRepository;
+
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+}
+```
+![img_13.png](img_13.png)
+
+
+![img_14.png](img_14.png)
+
+![img_15.png](img_15.png)
