@@ -11,6 +11,7 @@ import com.example.core.order.OrderServiceImpl;
 
 public class AppConfig {
     // AppConfig가 MemberServiceImpl를 생성과 MemoryMemberRepository를 주입해준다
+    // 생성자 주입
     public MemberService memberService() {
         return new MemberServiceImpl(new MemoryMemberRepository());
     }
