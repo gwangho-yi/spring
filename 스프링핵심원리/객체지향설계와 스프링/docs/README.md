@@ -1,7 +1,7 @@
 
 현재 만든 MemberServiceImpl 서비스는 OCP(개방 폐쇄), DIP(의존관계역전원칙)을 따르고 있는 것일까??
 현재는 의존 관계가 인터페이스 뿐만 아니라 구현까지 모두 의존하고 있는 문제점이 있다.
-MemberRepository 인터페이스와 MemmoryMemberRepository구현체 두 가지를 다 의존하고 있음.
+MemberRepository 인터페이스와 MemoryMemberRepository 구현체 두 가지를 다 의존하고 있음.
 ```java
 public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository = new MemmoryMemberRepository();
