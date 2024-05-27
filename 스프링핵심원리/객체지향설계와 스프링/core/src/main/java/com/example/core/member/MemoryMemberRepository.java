@@ -1,8 +1,12 @@
 package com.example.core.member;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 
+
+@Component
 // DB와 접속하는 구현체 역할을 한다.
 public class MemoryMemberRepository implements MemberRepository {
 
