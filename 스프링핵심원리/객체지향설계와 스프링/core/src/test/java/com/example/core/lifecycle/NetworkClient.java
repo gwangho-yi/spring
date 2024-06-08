@@ -1,6 +1,8 @@
 package com.example.core.lifecycle;
 
 import lombok.Setter;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 
 @Setter
@@ -25,13 +27,14 @@ public class NetworkClient {
         System.out.println("close: " + url);
     }
 
+    @PostConstruct
     public void init() {
         System.out.println("NetworkClient.afterPropertiesSet");
         connect();
         call("초기화 연결 메세지");
     }
 
-
+    @PreDestroy
     public void close() {
         System.out.println("NetworkClient.destroy");
         disconnect();
