@@ -2,6 +2,7 @@ package com.example.core.autowired;
 
 import com.example.core.AutoAppConfig;
 import com.example.core.discount.DiscountPolicy;
+import com.example.core.discount.RateDiscountPolicy;
 import com.example.core.member.Grade;
 import com.example.core.member.Member;
 import com.example.core.member.MemberRepository;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 import java.util.Map;
