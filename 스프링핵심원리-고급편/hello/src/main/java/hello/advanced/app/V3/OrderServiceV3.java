@@ -1,9 +1,9 @@
-package hello.advanced.app.V2;
+package hello.advanced.app.V3;
 
 import hello.advanced.trace.TraceId;
 import hello.advanced.trace.TraceStatus;
-import hello.advanced.trace.hellotrace.HelloTraceV1;
 import hello.advanced.trace.hellotrace.HelloTraceV2;
+import hello.advanced.trace.logtrace.LogTrace;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,18 +20,19 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class OrderServiceV2 {
-    private final OrderRepositoryV2 orderRepository;
+public class OrderServiceV3 {
 
-    private final HelloTraceV2 trace;
+    private final OrderRepositoryV3 orderRepository;
+
+    private final LogTrace trace;
 
 
-    public void orderItem(TraceId traceId, String itemId) {
+    public void orderItem( String itemId) {
 
         TraceStatus status = null;
-        status = trace.beginSync(traceId,"OrderService.orderItem()");
+        status = trace.begin("OrderService.orderItem()");
         try {
-            orderRepository.save(status.getTraceId(), itemId);
+            orderRepository.save(itemId);
             trace.end(status);
         } catch (Exception e) {
             trace.exception(status, e);
