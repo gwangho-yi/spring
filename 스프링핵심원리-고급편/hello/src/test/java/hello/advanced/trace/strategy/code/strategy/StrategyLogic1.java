@@ -1,23 +1,23 @@
-package hello.advanced.trace.teamplate.code;
+package hello.advanced.trace.strategy.code.strategy;
 
 import lombok.extern.slf4j.Slf4j;
 
 /**
  * packageName    : com.kovo.domain.ticketlink
- * fileName       : SubClassLogic1
+ * fileName       : StrategyLogic1
  * author         : 이광호
- * date           : 2024-08-04
+ * date           : 2024-08-15
  * description    :
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 2024-08-04        이광호       최초 생성
+ * 2024-08-15        이광호       최초 생성
  */
 
 @Slf4j
-public class SubClassLogic1 extends AbstractTemplate {
+public class StrategyLogic1 implements Strategy {
     @Override
-    protected void call() {
-        log.info("비즈니스 로직 1 실행");
+    public void call() {
+      log.info("비즈니스 로직1 실행");
     }
 }
