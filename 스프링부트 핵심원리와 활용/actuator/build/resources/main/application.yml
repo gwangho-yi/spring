@@ -1,0 +1,35 @@
+management:
+  info:
+    java:
+      enabled: true
+    os:
+      enabled: true
+    env:
+      enabled: true
+  server:
+    port: 9292
+  endpoint:
+    health:
+      show-details: always
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  app:
+    name: hello-actuator
+    company: gh
+
+
+logging:
+  level:
+    hello: trace
+
+
+# 톰켓 메트릭 :  퇴개 스레드, 사용 스레드 수를 포함한 다양한 메트릭 보기 가능.
+server:
+  tomcat:
+    mbeanregistry:
+      enabled: true
