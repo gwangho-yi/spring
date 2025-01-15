@@ -1,14 +1,13 @@
 package hello.proxy.config.v1_proxy.interface_proxy;
 
-import hello.proxy.app.v1.OrderRepositoryV1;
+import hello.proxy.app.v1.OrderControllerV1;
 import hello.proxy.trace.TraceStatus;
 import hello.proxy.trace.logtrace.LogTrace;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
 
 /**
  * packageName    : com.kovo.domain.ticketlink
- * fileName       : OrderRepositoryInterfacePro
+ * fileName       : OrderControllerInterfaceProxy
  * author         : 이광호
  * date           : 2025-01-15
  * description    :
@@ -18,24 +17,31 @@ import org.springframework.stereotype.Repository;
  * 2025-01-15        이광호       최초 생성
  */
 @RequiredArgsConstructor
-public class OrderRepositoryInterfaceProxy implements OrderRepositoryV1 {
+public class OrderControllerInterfaceProxy implements OrderControllerV1 {
 
-    private final OrderRepositoryV1 target;
+    private final OrderControllerV1 target;
+
     private final LogTrace logTrace;
     @Override
-    public void save(final String itemId) {
+    public String request(final String itemId) {
         TraceStatus status = null;
         try {
-            status = logTrace.begin("orderRepository.requast()");
+            status = logTrace.begin("OrderController.request()");
 
             // target 호출
-            target.save(itemId);
+            String result =  target.request(itemId);
             logTrace.end(status);
+
+            return result;
         }
          catch (Exception e) {
             logTrace.exception(status, e );
             throw e;
          }
+    }
 
+    @Override
+    public String noLog() {
+        return target.noLog();
     }
 }
