@@ -4,6 +4,7 @@ import hello.proxy.common.advice.TimeAdvice;
 import hello.proxy.common.service.ServiceImpl;
 import hello.proxy.common.service.ServiceInterface;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.aop.ClassFilter;
 import org.springframework.aop.MethodMatcher;
@@ -83,5 +84,18 @@ public class AdvisorTest {
         public boolean matches(Method method, Class<?> targetClass, Object... args) {
             throw new UnsupportedOperationException();
         }
+    }
+
+    @Test
+    @DisplayName("어드바이저 중복 호출 테스트")
+    void advisorTest3() {
+        ServiceImpl target = new ServiceImpl();
+        ProxyFactory proxyFactory = new ProxyFactory(target);
+        proxyFactory.addAdvisor(new DefaultPointcutAdvisor(Pointcut.TRUE, new TimeAdvice()));
+        proxyFactory.addAdvisor(new DefaultPointcutAdvisor(Pointcut.TRUE, new TimeAdvice()));
+
+        ServiceInterface proxy = (ServiceInterface) proxyFactory.getProxy();
+        proxy.save();
+        proxy.find();
     }
 }
