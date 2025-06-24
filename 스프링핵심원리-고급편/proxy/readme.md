@@ -92,5 +92,31 @@ classDiagram
 
 프록시 팩토리는 인터페이스가 있다면 JDK, 구체 클래스만 있다면 CGLIB를 사용한다.
 
+### 인터페이스
+
+``` java
+final ServiceImpl target = new ServiceImpl();
+
+final ProxyFactory proxyFactory = new ProxyFactory(target);
+```
 
 
+### 클래스 
+``` java
+final ConcreteService target = new ConcreteService();
+
+final ProxyFactory proxyFactory = new ProxyFactory(target);
+```
+
+### 인터페이스라도 클래스 강제하기
+``` java
+final ServiceInterface target = new ServiceImpl();
+ProxyFactory proxyFactory = new ProxyFactory(target);
+proxyFactory.setProxyTargetClass(true); // setProxyTargetClass true 설정 시, 인터페이스가 있더라도 cglib 사용한다.
+```
+
+
+## 포인트컷, 어드바이스, 어드바이저
+- **포인트컷(Pointcut)** : **'어디'** 에 부가 기능을 사용할지, 판단하는 필터링 로직
+- **어드바이스(Advice)** : 프록시가 호출하는 부가 **'기능'** 이다
+- **어드바이저(Advisor)** : **어드바이스1 + 포인트컷1** , 어드바이스와 포인트컷을 가지고 있는 것. 
