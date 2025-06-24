@@ -5,9 +5,9 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
 @Slf4j
-public class TimeAdvice implements MethodInterceptor {
+public class TimeAdvice implements MethodInterceptor { // MethodInterceptor -> Interceptor -> Advice 상속
     @Override
-    public Object invoke(final MethodInvocation invocation) throws Throwable {
+    public Object invoke(final MethodInvocation invocation) throws Throwable { // MethodInvocation: 클래스의 실행 정보를 담고 있음
         log.info("TimeProxy 실행");
         final long startTime = System.currentTimeMillis();
 
