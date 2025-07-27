@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.5.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+    id 'org.jetbrains.kotlin.jvm'
 }
 
 group = 'hello'
@@ -26,6 +27,7 @@ dependencies {
 	//테스트에서 lombok 사용
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 test {
@@ -37,4 +39,6 @@ sourceSets {
             srcDirs = ['src/test/java'] // 테스트 소스 경로 확인
         }
     }
+}
+compileKotlin {
 }
