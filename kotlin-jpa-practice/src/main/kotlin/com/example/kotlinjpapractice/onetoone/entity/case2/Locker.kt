@@ -1,8 +1,7 @@
-package com.example.kotlinjpapractice.onetoone.Entity.case1
+package com.example.kotlinjpapractice.onetoone.entity.case2
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
-import jakarta.persistence.FetchType
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
@@ -11,14 +10,15 @@ import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
 
 @Entity
-@Table(name = "member_case1")
-class Member(
+@Table(name = "locker_case2")
+class Locker(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 
     @Column(nullable = false)
     val name: String,
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "locker_id")  // 주 테이블 Member에 FK
-    val locker: Locker? = null)
+    @OneToOne
+    @JoinColumn(name = "member_id")  // 대상 테이블 Locker에 FK
+    val member: Member
+)
