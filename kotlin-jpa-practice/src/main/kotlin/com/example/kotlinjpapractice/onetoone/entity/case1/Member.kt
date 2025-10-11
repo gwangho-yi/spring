@@ -10,7 +10,7 @@ import jakarta.persistence.JoinColumn
 import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
 
-@Entity
+@Entity(name = "MemberCase1")
 @Table(name = "member_case1")
 class Member(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

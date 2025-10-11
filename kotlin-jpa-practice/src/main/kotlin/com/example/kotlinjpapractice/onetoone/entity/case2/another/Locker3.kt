@@ -8,7 +8,7 @@ import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.Table
 
-@Entity
+@Entity(name = "LockerCase3")
 @Table(name = "locker_case3")
 class Locker3(
     @Id @GeneratedValue

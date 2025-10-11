@@ -9,7 +9,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 
-@Entity
+@Entity(name = "MemberCase3")
 @Table(name = "member_case3")
 class Member3(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

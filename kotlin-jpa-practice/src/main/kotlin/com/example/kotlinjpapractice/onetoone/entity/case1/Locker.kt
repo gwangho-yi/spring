@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
 
-@Entity
+@Entity(name = "LockerCase1")
 @Table(name = "locker_case1")
 class Locker(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
