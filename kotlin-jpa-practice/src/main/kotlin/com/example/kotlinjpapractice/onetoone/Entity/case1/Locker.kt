@@ -1,4 +1,4 @@
-package com.example.kotlinjpapractice.onetoone.case1
+package com.example.kotlinjpapractice.onetoone.Entity.case1
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

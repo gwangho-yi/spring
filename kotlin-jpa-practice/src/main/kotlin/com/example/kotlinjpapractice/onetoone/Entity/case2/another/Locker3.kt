@@ -1,4 +1,4 @@
-package com.example.kotlinjpapractice.onetoone.case2.another
+package com.example.kotlinjpapractice.onetoone.Entity.case2.another
 
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
